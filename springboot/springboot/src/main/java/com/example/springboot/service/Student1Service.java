@@ -15,4 +15,23 @@ public class Student1Service {
     public List<Student1> getAllStudents() {
         return student1Repository.findAll();
     }
+
+    public String addStudent(Student1 student1) {
+        student1Repository.save(student1);
+        return "Added Successfully";
+    }
+
+    public Student1 getStudentByRollNo(int rno) {
+        return student1Repository.findById(rno).orElse(new Student1());
+    }
+
+    public String updateStudent(Student1 student1) {
+        student1Repository.save(student1);
+        return "Updated Successfully";
+    }
+
+    public String deleteStudent(int rno) {
+        student1Repository.deleteById(rno);
+        return "Deleted Successfully";
+    }
 }

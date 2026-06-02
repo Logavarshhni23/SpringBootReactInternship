@@ -14,5 +14,6 @@ public class Student1 {
     @Id
     private int rno;
     private String name;
+    private String gender;
     private String tech;
 }
