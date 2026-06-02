@@ -30,8 +30,22 @@ public class Student1Service {
         return "Updated Successfully";
     }
 
+
     public String deleteStudent(int rno) {
         student1Repository.deleteById(rno);
         return "Deleted Successfully";
+    }
+
+    public String deleteAllStudents() {
+        student1Repository.deleteAll();
+        return "Deleted All Students Successfully";
+    }
+
+    public List<Student1> getStudentsByGenderAndTech(String gender, String tech) {
+        return student1Repository.findByGenderAndTech(gender,tech);
+    }
+
+    public Student1 getStudentsByNameAndTech(String name, String tech) {
+        return student1Repository.findByNameAndTech(name,tech);
     }
 }

@@ -37,9 +37,28 @@ public class Student1Controller {
     }
 
     //deleteMapping
+    @DeleteMapping("/delete")
+    public String deleteAllStudents(){
+        return student1Service.deleteAllStudents();
+    }
+
     @DeleteMapping("/delete/{rno}")
     public String deleteStudent(@PathVariable("rno") int rno){
         return student1Service.deleteStudent(rno);
     }
-    
+
+    //Custom JPA Methods
+    //get by gender and tech
+    @GetMapping("get/custom")
+    public List<Student1> getStudentsByGenderAndTech(@RequestParam("gender") String gender,
+                                                     @RequestParam("tech") String tech){
+        return student1Service.getStudentsByGenderAndTech(gender, tech);
+    }
+
+    //get by name and tech
+    @GetMapping("get/custom1")
+    public Student1 getStudentsByNameAndTech(@RequestParam("name") String name,
+                                                     @RequestParam("tech") String tech){
+        return student1Service.getStudentsByNameAndTech(name, tech);
+    }
 }
