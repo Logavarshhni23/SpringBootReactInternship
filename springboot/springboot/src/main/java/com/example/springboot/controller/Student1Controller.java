@@ -61,4 +61,17 @@ public class Student1Controller {
                                                      @RequestParam("tech") String tech){
         return student1Service.getStudentsByNameAndTech(name, tech);
     }
+
+    //get by tech
+    @GetMapping("get/tech/{tech}")
+    public List<Student1> getStudentsByTech(@PathVariable("tech") String tech){
+        return student1Service.getStudentsByTech(tech);
+    }
+
+    //Native Query
+    @PostMapping("filter")
+    public List<Student1> getStudentsByGenAndTech(@RequestParam("gender") String gender,
+                                                  @RequestParam("tech") String tech){
+        return student1Service.getStudentsByGenAndTech(gender,tech);
+    }
 }

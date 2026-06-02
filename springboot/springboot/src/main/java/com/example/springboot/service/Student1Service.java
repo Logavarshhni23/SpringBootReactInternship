@@ -41,11 +41,21 @@ public class Student1Service {
         return "Deleted All Students Successfully";
     }
 
+    //Custom Query
     public List<Student1> getStudentsByGenderAndTech(String gender, String tech) {
         return student1Repository.findByGenderAndTech(gender,tech);
     }
 
     public Student1 getStudentsByNameAndTech(String name, String tech) {
         return student1Repository.findByNameAndTech(name,tech);
+    }
+
+    public List<Student1> getStudentsByTech(String tech){
+        return student1Repository.findByTech(tech);
+    }
+
+    //Native Query
+    public List<Student1> getStudentsByGenAndTech(String gender, String tech) {
+        return student1Repository.findByGenAndTech(gender,tech);
     }
 }
