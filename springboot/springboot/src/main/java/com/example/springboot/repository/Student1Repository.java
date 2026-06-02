@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,5 +18,11 @@ public interface Student1Repository extends JpaRepository<Student1,Integer> {
     //Native Query
     @Query(nativeQuery = true,value="SELECT * FROM Student1 where gender=:gender AND tech=:tech")
     //gender in table and value of gender
-    List<Student1> findByGenAndTech(@Param("gender") String gender,@Param("tech") String tech);
+    List<Student1> findByGenAndTech(@Param("gender") String gender, @Param("tech") String tech);
+
+    //JPQL
+    //Here student is entity(class)
+    @Query("SELECT s FROM Student1 s WHERE s.name = :name")
+    Student1 findByName(@Param("name") String name);
+
 }

@@ -58,4 +58,8 @@ public class Student1Service {
     public List<Student1> getStudentsByGenAndTech(String gender, String tech) {
         return student1Repository.findByGenAndTech(gender,tech);
     }
+
+    public Student1 getStudentByName(String name) {
+        return student1Repository.findByName(name);
+    }
 }

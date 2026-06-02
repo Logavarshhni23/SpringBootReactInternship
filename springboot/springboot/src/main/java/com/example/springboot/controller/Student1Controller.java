@@ -74,4 +74,11 @@ public class Student1Controller {
                                                   @RequestParam("tech") String tech){
         return student1Service.getStudentsByGenAndTech(gender,tech);
     }
+
+    //JPQL
+    @PostMapping("find/name")
+    public Student1 getStudentByName(@RequestParam("name") String name){
+        return student1Service.getStudentByName(name);
+    }
+
 }
