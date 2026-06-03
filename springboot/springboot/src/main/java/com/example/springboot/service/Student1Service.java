@@ -5,6 +5,8 @@ import com.example.springboot.model.Student1;
 import com.example.springboot.repository.Student1Repository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -95,5 +97,9 @@ public class Student1Service {
         std1.setTech(s.getTech());
         std1.setEmail(s.getEmail());
         return std1;
+    }
+
+    public Page<Student1> getAllStudents(int page, int size) {
+        return student1Repository.findAll(PageRequest.of(page,size));
     }
 }

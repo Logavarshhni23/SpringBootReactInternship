@@ -5,6 +5,7 @@ import com.example.springboot.model.Student1;
 import com.example.springboot.service.Student1Service;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -92,6 +93,12 @@ public class Student1Controller {
     @PostMapping("/dto/add")
     public Student1Dto addStudentUsingDto(@Valid @RequestBody Student1Dto s){
         return student1Service.addStudentUsingDto(s);
+    }
+
+    //Pagination
+    @GetMapping("/page/get")
+    public Page<Student1> getAllStudents(@RequestParam("page") int page, @RequestParam("size") int size){
+        return student1Service.getAllStudents(page,size);
     }
 
 }
