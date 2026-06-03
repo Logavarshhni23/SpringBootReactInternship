@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.Dto.Student1Dto;
 import com.example.springboot.model.Student1;
 import com.example.springboot.service.Student1Service;
 import jakarta.validation.Valid;
@@ -80,6 +81,17 @@ public class Student1Controller {
     @PostMapping("find/name")
     public Student1 getStudentByName(@RequestParam("name") String name){
         return student1Service.getStudentByName(name);
+    }
+
+    //DTO
+    @GetMapping("/dto/get/{rn}")
+    public Student1Dto getAllStudentByRollNumber(@PathVariable("rn") int rn){
+        return student1Service.getAllStudentByRollNumber(rn);
+    }
+
+    @PostMapping("/dto/add")
+    public Student1Dto addStudentUsingDto(@Valid @RequestBody Student1Dto s){
+        return student1Service.addStudentUsingDto(s);
     }
 
 }

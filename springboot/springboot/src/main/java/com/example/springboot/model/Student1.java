@@ -17,6 +17,10 @@ public class Student1 {
 
     @NotBlank(message = "Name cannot be empty")
     private String name;
+
+    @NotBlank(message = "Name cannot be empty")
     private String gender;
     private String tech;
+    private String email;
+    private String password;
 }
