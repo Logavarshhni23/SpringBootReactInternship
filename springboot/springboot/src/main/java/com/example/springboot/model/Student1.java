@@ -2,6 +2,7 @@ package com.example.springboot.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,8 @@ import lombok.NoArgsConstructor;
 public class Student1 {
     @Id
     private int rno;
+
+    @NotBlank(message = "Name cannot be empty")
     private String name;
     private String gender;
     private String tech;

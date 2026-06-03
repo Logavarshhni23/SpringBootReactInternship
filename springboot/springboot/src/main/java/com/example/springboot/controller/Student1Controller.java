@@ -2,6 +2,7 @@ package com.example.springboot.controller;
 
 import com.example.springboot.model.Student1;
 import com.example.springboot.service.Student1Service;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class Student1Controller {
 
     //postMapping
     @PostMapping("/add")
-    public String addStudent(@RequestBody Student1 student1){
+    public String addStudent(@Valid @RequestBody Student1 student1){
         return student1Service.addStudent(student1);
     }
 
