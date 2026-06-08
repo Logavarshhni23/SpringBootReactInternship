@@ -16,6 +16,11 @@ public class Student1Controller {
     @Autowired
     Student1Service student1Service;
 
+    //home page
+    @GetMapping("/home")
+    public String home(){
+        return "Home Page";
+    }
     //getMapping
     @GetMapping("/get")
     public List<Student1> getAllStudents(){
